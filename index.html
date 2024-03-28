@@ -5,32 +5,46 @@
     <title>Hello!</title>
     <style>
         h1 {
+            border: 1px dashed yellow;
+        }
+
+       #radio1:checked + #lable1 {
+            color: red;
+        }
+        #radio1:focus + #lable1 {
+            color: yellow;
+        }               
+
+        #radio2:checked + #lable2 {
+            color: blue;
+        }
+        #radio2:focus + #lable2 {
+            color: green;
+        }
+        input:focus {
+            background-color: yellow;
+        }
+        input:enabled {
+            background-color: green;
+        }
+        #radio3:checked + #lable3 {
+            color: green;
+        }
+        #radio3:focus + #lable3 {
             color: blue;
         }
     </style>
 </head>
 
 <body>
-    <h1>Hello, World!</h1>
-    <p>My name is <strong>John Doe</strong>. I'm a web developer.</p>
-    <p>My favorite programming languages are:</p>
-    <ul>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Java</li>
-    </ul>
-    <p>Here's a picture of a cat:</p>
-    <img src="https://www.kasandbox.org/programming-images/animals/cat.png" alt="A cute orange cat.">
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
-    <p>Here's a link to <a href="https://www.kasandbox.org/programming-images/animals/cat.png">a picture of a cat</a>.</p>
+    <h1>반응선택자</h1>
+    <form>
+        <input type="radio" id="radio1"><label for="radio1" id="lable1">라디오1</label>
+        <input type="radio" id="radio2"><label for="radio2" id="lable2">라디오2</label>
+        <input>
+        <input type="submit" value="전송">
+        <input type="radio" id="radio3"><label for="radio3" id="lable3">라디오3</label>
+    </form>     
 </body>
 
 </html>
