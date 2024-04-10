@@ -1,50 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Hello!</title>
-    <style>
-        h1 {
-            border: 1px dashed yellow;
-        }
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
 
-       #radio1:checked + #lable1 {
-            color: red;
-        }
-        #radio1:focus + #lable1 {
-            color: yellow;
-        }               
+  <body>
+    <a href="#alpha">alpha</a>
+    <a href="#beta">beta</a>
+    <a href="#gamma">gamma</a>
+    <a href="#">wjscp</a>
+    <hr />
 
-        #radio2:checked + #lable2 {
-            color: blue;
-        }
-        #radio2:focus + #lable2 {
-            color: green;
-        }
-        input:focus {
-            background-color: yellow;
-        }
-        input:enabled {
-            background-color: green;
-        }
-        #radio3:checked + #lable3 {
-            color: green;
-        }
-        #radio3:focus + #lable3 {
-            color: blue;
-        }
-    </style>
-</head>
+    <a href="http://www.naver.com/">네이버</a>
 
-<body>
-    <h1>반응선택자</h1>
-    <form>
-        <input type="radio" id="radio1"><label for="radio1" id="lable1">라디오1</label>
-        <input type="radio" id="radio2"><label for="radio2" id="lable2">라디오2</label>
-        <input>
-        <input type="submit" value="전송">
-        <input type="radio" id="radio3"><label for="radio3" id="lable3">라디오3</label>
-    </form>     
-</body>
+    <ol>
+      <li><h1 id="alpha">alpha</h1></li>
+      <p>
+        <i>
+          &nbsp; &lt; &gt &amp <br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia earum
+          ducimus quas eligendi aliquam, nemo, nesciunt nihil ea hic ullam
+          tempora sed quis. Laborum cum fugiat dolor ipsum veritatis? Officiis!
+        </i>
+      </p>
 
+      <li><h1 id="beta">beta</h1></li>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa ea
+        laborum temporibus. Ratione eveniet culpa vero mollitia. Ab culpa vitae
+        libero minus tenetur aut autem at dignissimos aliquam, possimus quidem!
+      </p>
+
+      <h1 id="gamma">gamma</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nemo
+        placeat numquam consequuntur, error, voluptatem voluptate, mollitia quis
+        unde in repellendus quam fugiat magnam tempora sunt maxime neque est at.
+      </p>
+    </ol>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th colspan="2">지역별 홍차</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="3">중국</th>
+          <td>정산소종</td>
+        </tr>
+        <tr>
+          <td>운남</td>
+        </tr>
+        <tr>
+          <td>기문</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <img
+      src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAxMjFfMjIg%2FMDAxNzA1ODAxNDQ2Nzk1.n-Z0Tuc8H_vHWvdKRDpHAl1pUOdsBjvwLJHuGB4jKLIg.7m-Fv2pG2OEyjZCaSndeY2rsj7VR3iyyw3uFU2EkKA4g.PNG.sweet-pro%2Fpapago-removebg-preview.png&type=a340"
+      alt="파파고"
+      width="300"
+    />
+    <img src="Penguins.jpg" alt="Penguins" width="300" />
+    <img src="nothing" alt="그림이 존재하지 않습니다." />
+
+    <audio src="nothing" controls="controls"></audio>
+
+    <video controls="controls" poster="http://via.placeholder.com/1280x720">
+      <source src="content_warning_9d615442.webm" type="video/webm" />
+    </video>
+  </body>
 </html>
