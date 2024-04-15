@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Keyboard</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      #keyboard-container {
+        display: inline-block;
+      }
+
+      #keyboard {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
+        width: 300px;
+        margin: 0 auto 20px auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        background-color: #f0f0f0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      button:hover {
+        background-color: #e0e0e0;
+      }
+
+      #input-text {
+        width: 300px;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="keyboard-container">
+      <input type="text" id="input-text" readonly />
+      <div id="keyboard">
+        <!-- 숫자 키 -->
+        <button onclick="sendKey('1')">1</button>
+        <button onclick="sendKey('2')">2</button>
+        <button onclick="sendKey('3')">3</button>
+        <button onclick="sendKey('4')">4</button>
+        <button onclick="sendKey('5')">5</button>
+        <button onclick="sendKey('6')">6</button>
+        <button onclick="sendKey('7')">7</button>
+        <button onclick="sendKey('8')">8</button>
+        <button onclick="sendKey('9')">9</button>
+        <button onclick="sendKey('0')">0</button>
+
+        <!-- 알파벳 키 -->
+        <button onclick="sendKey('Q')">Q</button>
+        <button onclick="sendKey('W')">W</button>
+        <button onclick="sendKey('E')">E</button>
+        <button onclick="sendKey('R')">R</button>
+        <button onclick="sendKey('T')">T</button>
+        <button onclick="sendKey('Y')">Y</button>
+        <button onclick="sendKey('U')">U</button>
+        <button onclick="sendKey('I')">I</button>
+        <button onclick="sendKey('O')">O</button>
+        <button onclick="sendKey('P')">P</button>
+
+        <!-- 알파벳 키 -->
+        <button onclick="sendKey('A')">A</button>
+        <button onclick="sendKey('S')">S</button>
+        <button onclick="sendKey('D')">D</button>
+        <button onclick="sendKey('F')">F</button>
+        <button onclick="sendKey('G')">G</button>
+        <button onclick="sendKey('H')">H</button>
+        <button onclick="sendKey('J')">J</button>
+        <button onclick="sendKey('K')">K</button>
+        <button onclick="sendKey('L')">L</button>
+
+        <!-- 알파벳 키 -->
+        <button onclick="sendKey('Z')">Z</button>
+        <button onclick="sendKey('X')">X</button>
+        <button onclick="sendKey('C')">C</button>
+        <button onclick="sendKey('V')">V</button>
+        <button onclick="sendKey('B')">B</button>
+        <button onclick="sendKey('N')">N</button>
+        <button onclick="sendKey('M')">M</button>
+
+        <!-- 기능 키 -->
+        <button onclick="sendKey('Backspace')">Backspace</button>
+        <button onclick="sendKey('Space')">Space</button>
+        <button onclick="sendKey('Enter')">Enter</button>
+      </div>
+    </div>
+
+    <script>
+      function sendKey(key) {
+        const inputText = document.getElementById("input-text");
+        if (key === "Backspace") {
+          inputText.value = inputText.value.slice(0, -1);
+        } else if (key === "Space") {
+          inputText.value += " ";
+        } else if (key === "Enter") {
+          inputText.value += "\n";
+        } else {
+          inputText.value += key;
+        }
+      }
+    </script>
+  </body>
+</html>
