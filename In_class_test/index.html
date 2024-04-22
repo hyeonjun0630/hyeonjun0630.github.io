@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <head>
     <title>Document</title>
 </head>
@@ -12,4 +12,108 @@
         btn.addEventListener("click", simpleHandler);
     </script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Showtimes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      .movie-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .time-column {
+        width: 20%;
+      }
+
+      .movie-column {
+        width: 40%;
+      }
+
+      .theater-column {
+        width: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="movie-container">
+      <h1>영화 상영시간표</h1>
+      <table>
+        <thead>
+          <tr>
+            <th class="time-column">상영 시간</th>
+            <th class="movie-column">영화 제목</th>
+            <th class="theater-column">상영관</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>09:00</td>
+            <td>어벤져스: 엔드게임</td>
+            <td>1관</td>
+          </tr>
+          <tr>
+            <td>12:30</td>
+            <td>캡틴 마블</td>
+            <td>2관</td>
+          </tr>
+          <tr>
+            <td>15:00</td>
+            <td>알라딘</td>
+            <td>3관</td>
+          </tr>
+          <tr>
+            <td>18:00</td>
+            <td>기생충</td>
+            <td>4관</td>
+          </tr>
+          <tr>
+            <td>21:00</td>
+            <td>아이언맨</td>
+            <td>5관</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
