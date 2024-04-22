@@ -1,7 +1,10 @@
 <!-- vscode들어가서 clone repository로 주소복사해서 가져오기
 github 로그인하기
 복제하기
-
+터미널 열어서
+git config --global user.email "hyeonjun@inha.edu"
+git config --global user.name "hyeonjun0630"
+치기.
 
 
 
@@ -19,22 +22,28 @@ id 클릭하면 해당 아이디 따라가기
 목록 요소 추가 = <li></li> => ul, ol 내부에 집어넣기
 
 테이블 표 만들기(table)
-표 삽입 = <table border = "1"></table>
-표에 행 삽입 = <tr></tr>
-표에 제목 셀 삽입 = <th></th> (속성으로 colspan, rowspan 사용가능)
-표에 일반 셀 삽입 = <td></td> (셀의 너비, 셀의 높이지정.)
-구역 구분위해 <thead></thead> <tbody></tbody> <tfoot></tfoot> 사용 가능
+  표 삽입 = <table border="1"></table>
+  표에 행 삽입 = <tr></tr>
+  표에 제목 셀 삽입 = <th></th> (속성으로 colspan, rowspan 사용가능)
+  표에 일반 셀 삽입 = <td></td> (셀의 너비, 셀의 높이지정.)
+  구역 구분위해 <thead></thead>
+  <tbody></tbody>
+  <tfoot></tfoot> 사용 가능
 
 이미지 삽입 = <img src="주소" alt="설명" width="너비" height="높이">
             = <img src="Nothing" alt="그림이 존재하지 않습니다.">
 오디오 삽입 = <audio src="주소" controls="controls"></audio>
-비디오 삽입 = <video controls="controls"><source src="주소" type="video/확장자"></video>
-            = <video controls="controls"><source src="content_warning.webm" type="video/webm"></video>
+비디오 삽입 = <video controls="controls">
+                <source src="주소" type="video/확장자">
+              </video>
+            = <video controls="controls">
+                <source src="content_warning.webm" type="video/webm">
+              </video>
 
 
 입력 양식 = <form></form> 으로 영역생성, 내부에 input태그 넣어서 submit 제출버튼으로 데이터 전달
 <form>
-  <input type="text" name = "search" />
+  <input type="text" name="search" />
   <input type="submit" />
 </form>
 
@@ -50,66 +59,136 @@ id 클릭하면 해당 아이디 따라가기
 입력양식 종류 = 글 입력류 = text, password, textarea,email, fieldset, legend, label
 (강노68~69)     선택버튼류 = radio, checkbox, submit, reset, button, file, select, option
                 기타 = hidden, date, month, week, time, datetime-local
-                
-                [NOTE!]
-                  - label 태그의 for 속성에 input 태그의 id 속성을 입력해 input 태그를 설명할 수 있다.
-                   <form>
-                     <label for="name">이름</label>
-                     <input type="text" id="name"/>
-                   </form>
 
-                  - radio 버튼은 name 속성을 같게 입력해야 여러 항목 중 하나만 선택됨
-                   <input id="man" type="radio" name="gender" value="m">
-                   <label for="man">남자</label>
-                   <input id="woman" type="radio" name="gender" value="w">
-                   <label for="woman">여자</label>
+[NOTE!]
+  - label 태그의 for 속성에 input 태그의 id 속성을 입력해 input 태그를 설명할 수 있다.
+  <form>
+    <label for="name">이름</label>
+    <input type="text" id="name" />
+  </form>
 
-                  - select 태그 = 목록의 항목 중 하나 또는 여러 개를 선택할 때 사용
-                    -> multiple 속성 = 여러 개 선택 가능
-                   option 태그 = select 태그 내부에 넣으면 옵션 선택 요소가 생성됨
-                   <select multiple="multiple">
-                     <option value="1">1</option>
-                     <option value="2">2</option>
-                   </select>
-                   optgroup태그를 사용해 고택 옵션을 그룹으로 묶을 수 있음.
-                    강노참고
+  - radio 버튼은 name 속성을 같게 입력해야 여러 항목 중 하나만 선택됨
+    <input id="man" type="radio" name="gender" value="m">
+    <label for="man">남자</label>
+    <input id="woman" type="radio" name="gender" value="w">
+    <label for="woman">여자</label>
 
-                  - fieldset태그와 legend 태그로 입력 양식을 그룹으로 묶고 이름을 지정할 수 있다.
-                    강노참고
+  - select 태그 = 목록의 항목 중 하나 또는 여러 개를 선택할 때 사용
+    -> multiple 속성 = 여러 개 선택 가능
+    option 태그 = select 태그 내부에 넣으면 옵션 선택 요소가 생성됨
+    <select multiple="multiple">
+      <option value="1">1</option>
+      <option value="2">2</option>
+    </select>
+    optgroup태그를 사용해 고택 옵션을 그룹으로 묶을 수 있음.
+    강노참고
 
-                  - textarea태그 내 들여쓰기가 입력 양식 내부에 출력되므로 주의!!!!
-                   <textarea>
-                     내용
-                     내용
-                   </textarea>가 아니라
-                   
-                   <textarea>내용
-                   내용</textarea>로 작성해야함
-                [NOTE!]
+  - fieldset태그와 legend 태그로 입력 양식을 그룹으로 묶고 이름을 지정할 수 있다.
+  강노참고
+
+  - textarea태그 내 들여쓰기가 입력 양식 내부에 출력되므로 주의!!!!
+    <textarea>
+      내용
+      내용
+    </textarea>가 아니라
+
+    <textarea>내용
+    내용</textarea>로 작성해야함
+[NOTE!]
 
 
 
 [CSS 개념]
-선택자
-  전체 선택자    = * {속성:값;}               => 모든 요소에 적용
+선택자 (강노 90~107)
+  전체 선택자      = * {속성:값;} => 모든 요소에 적용
 
-  태그 선택자    = 태그명 {속성:값;}          => 특정 태그에 적용
+  태그 선택자      = 태그명 {속성:값;} => 특정 태그에 적용
 
-  아이디 선택자  = #아이디명 {속성:값;}       => 특정 아이디에 적용
+  아이디 선택자    = #아이디명 {속성:값;} => 특정 아이디에 적용
 
-  클래스 선택자  = .클래스명 {속성:값;}       => 특정 클래스에 적용
+  클래스 선택자    = .클래스명 {속성:값;} => 특정 클래스에 적용
 
-  속성 선택자    = [속성] {속성:값;}          => 특정 속성에 적성
-                = input[type="text"] {속성:값;} => input 태그의 type이 text인 요소에 적용
+  후손 선택자      = 선택자 선택자 {속성:값;} => 선택자 하위의 모든 요소에 적용
+                   = #header h1 {속성:값;} => header id를 가진 요소의 하위 h1 요소에 적용 (후손이어도 상관 없음)
 
-  후손 선택자    = 선택자 선택자 {속성:값;}   => 선택자 하위의 모든 요소에 적용
-                = header h1 {속성:값;} => header 요소의 하위 h1 요소에 적용
+  자손 선택자      = 선택자 > 선택자 {속성:값;} => 선택자의 자식 요소에 적용(후손X)
+                   = #header > h1 {속성:값;} => header id를 가진 요소의 자식 h1 요소에 적용
+                   [NOTE!!] table 태그에 스타일을 적용할 때는 자손 선택자를 사용하면 안 됨.
+                   table > tr > td {속성:값;} => 이렇게 사용하면 안 됨.
+                   table tr td {속성:값;} => 이렇게 사용해야 함.
 
-  자손 선택손    = 선택자 > 선택자 {속성:값;} => 선택자의 자식 요소에 적용(후손X)
+  반응 선택자      = 선택자:상태 {속성:값;} => 선택자의 상태에 따라 적용
+                   = div:hover {color:red;} => div태그에 마우스를 올렸을 때 색상 변경
+                   = div:active {color:red;} => div태그를 클릭했을 때 색상 변경
 
-  반응 선택자    = 선택자:상태 {속성:값;}     => 선택자의 상태에 따라 적용
-                = div:hover {color:red;} => div태그에 마우스를 올렸을 때 색상 변경
-                = div:active {color:red;} => div태그를 클릭했을 때 색상 변경
+  속성 선택자      = 선택자[속성=값] {속성:값;} => 특정한 속성 내부 값이 특정 값과 일치할 때 적용
+                   = input[type="text"] {속성:값;} => input 태그의 type이 text인 요소에 적용
 
 
-  선택자를 함께 사용하여 정확한 요소를 선택할 수 있다. li.select {...} -> li태그 중 class가 select인 요소에 적용 -->
+  상태 선택자      = 선택자:상태 {속성:값;} => 선택자의 상태에 따라 적용
+                   = input:enabled {background-color: red;} => input태그가 활성화(사용 가능할때)되었을 때 색상 변경
+                   = input:disabled {background-color: red;} => input태그가 비활성화(사용 불가능할때)되었을 때 색상 변경
+
+
+  구조 선택자      = 선택자:first-child {속성:값;} => 선택자의 형제 요소 중 첫 번째 요소에 적용
+                           :last-child {속성:값;} => 선택자의 형제 요소 중 마지막 요소에 적용
+                 중요!!!!! :nth-child(수열) {속성:값;} => 선택자의 형제 요소 중 수열 번째 요소에 적용(숫자도 가능)
+
+
+  선택자를 함께 사용하여 정확한 요소를 선택할 수 있다. li.select {...} -> li태그 중 class가 select인 요소에 적용
+
+
+
+크기단위
+  px = 픽셀 단위, 고정크위
+  em = 배수 단위, 부모요소의 크기에 따라 상대적으로 변함
+  % = 백분율 단위, 부모요소의 크기에 따라 상대적으로 변함
+
+
+색상단위
+  rgb = rgb(0, 0, 0) ~ rgb(255, 255, 255)
+  rgba = rgba(0, 0, 0, 0) ~ rgba(255, 255, 255, 1) (a = 투명도)
+
+
+url단위
+  이미지 위치에 따라 URL 경로를 다음 코드와 같이 입력해 파일에 접근.
+  ex) background-image: url("경로/파일명.확장자");
+
+
+Common Property Types
+ Property Type의 Property => 강노 146
+ ex) text-align, border-radius....
+
+
+
+박스 속성 = width, height, margin, padding, border (154)
+  - border 기준 안쪽   = padding
+              바깥쪽 = margin
+
+  - 마진 상쇄 = 두 요소의 마진이 겹칠 때 큰 마진만큼만 적용됨 (상하좌우 모두 적용됨)
+              = 따라서 두 요소의 마진이 겹치지 않게 하려면 두 요소 사이에 border, padding을 넣어야 함.
+
+  - border = border-width, border-style, border-color로 구성
+           = border: 1px solid black; (순서대로 width, style, color)
+           = border-radius: 10px; (모서리 둥글게 만들기)
+
+  - overflow = 요소의 크기가 작아서 내용이 넘칠 때 처리 방법을 지정
+             = visible(넘친 내용이 보임)
+             = hidden (넘친 내용이 안 보임)
+             = scroll (넘친 내용이 스크롤로 보임)
+             = auto   (넘친 내용이 스크롤로 보임)
+
+가시 속성 = display, visibility (177)
+  - display = 요소의 표시 방법을 지정
+            = none        (요소를 보이지 않게 함)
+            = block       (요소를 블록 요소로 표시)
+            = inline      (요소를 인라인 요소로 표시) = 따라서 width, height, margin, padding 속성 사용 불가능
+            = inline-block(요소를 인라인 블록 요소, 블록과 인라인의 중간형태로 표시) = 위 속성 사용 가능
+
+배경 속성 = background (184)
+  - background = background-color: red;                       (배경색 지정)
+               = background-image: url("경로/파일명.확장자"); (배경 이미지 지정)
+               = background-repeat: no-repeat;                (배경 이미지 반복 방법 지정)
+               = background-position: center;                 (배경 이미지 위치 지정)
+               = background-attachment: fixed;                (배경 이미지 고정 여부 지정)
+               = background-size: 100px 100px;                (배경 이미지 크기 지정) -->
