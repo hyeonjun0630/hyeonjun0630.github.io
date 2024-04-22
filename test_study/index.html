@@ -1,99 +1,241 @@
+<!-- 하이퍼텍스트
+<a href=" ">nothing </a>
+id 클릭하면 해당 아이디 따라가기
+<a href="#id">id</a>
+글자모양 태그
+<b></b>, <i></i>, <small></small>, <sub></sub>, <sup></sup>, <ins></ins>, <del></del>
+
+네비게이션 메뉴 순서없는 메뉴 = <ul></ul>
+순서있는 메뉴 = <ol></ol>
+목록 요소 추가 = <li></li> => ul, ol 내부에 집어넣기
+
+테이블 표 만들기(table)
+표 삽입 = <table border = "1"></table>
+표에 행 삽입 = <tr></tr>
+표에 제목 셀 삽입 = <th></th> (속성으로 colspan, rowspan 사용가능)
+표에 일반 셀 삽입 = <td></td> (셀의 너비, 셀의 높이지정.)
+구역 구분위해 <thead></thead> <tbody></tbody> <tfoot></tfoot> 사용 가능
+
+58 -->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello!</title>
+    <title>HTML5 Basic Page</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <style>
+      #test {
+        /* 각각 border-width, -style, -color */
+        border: 10px dashed black;
+        border-radius: 50px 40px 30px 20px;
+        margin: 50px 50px 50px 50px;
+        padding: 50px 50px 50px 50px;
+        text-align: center;
+        font-size: 50px;
+
+        /* 첫번째 이미지(위 레이어), 두번째 이미지(아래 레이어->안보) */
+        background-image: url("Penguins.jpg"),
+          url("0700ef920e3bc31f3103b29ca67b19c1.jpg");
+        /* 첫번째 이미지의 사이즈, 두번째 이미지의 사이즈 */
+        background-size: 50%, 50%;
+      }
+    </style>
   </head>
-
   <body>
-    <a href="#alpha">alpha</a>
-    <a href="#beta">beta</a>
-    <a href="#gamma">gamma</a>
-    <a href="#">wjscp</a>
-    <hr />
+    <div id="test">안녕하세요</div>
 
-    <a href="http://www.naver.com/">네이버</a>
+    <div id="page-wrapper">
+      <header id="main-header">
+        <hgroup>
+          <h1 class="master-title">HTML5 Example Preview</h1>
+          <h2 class="master-description">한빛아카데미</h2>
+        </hgroup>
+      </header>
+      <nav id="main-navigation">
+        <div class="pull-left">
+          <ul class="outer-menu">
+            <li class="outer-menu-item">
+              <span class="menu-title">HTML5</span>
+              <ul class="inner-menu">
+                <li class="inner-menu-item"><a href="#alphaHTML">데이터</a></li>
+                <li class="inner-menu-item"><a href="#betaHTML">데이터</a></li>
+              </ul>
+            </li>
+            <li class="outer-menu-item">
+              <span class="menu-title">CSS3</span>
+              <ul class="inner-menu">
+                <li class="inner-menu-item"><a href="#">데이터</a></li>
+                <li class="inner-menu-item"><a href="#">데이터</a></li>
+                <li class="inner-menu-item"><a href="#">데이터</a></li>
+              </ul>
+            </li>
+            <li class="outer-menu-item">
+              <span class="menu-title">JavaScript</span>
+              <ul class="inner-menu">
+                <li class="inner-menu-item"><a href="#">데이터</a></li>
+                <li class="inner-menu-item"><a href="#">데이터</a></li>
+                <li class="inner-menu-item"><a href="#">데이터</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="pull-right">
+          <div class="search-bar">
+            <form>
+              <input type="text" class="input-search" />
+              <input type="submit" class="input-search-submit" value="검색" />
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div id="content">
+        <section id="main-section">
+          <article>
+            <div class="article-header">
+              <h1 class="article-title">HTML5 개요와 활용</h1>
+              <p class="article-date">2023년 05월 22일</p>
+            </div>
+            <div class="article-body">
+              <img src="http://placeholder.com/430x280" />
+              <br />
+              <br />
+              <ol>
+                <p id="alphaHTML">
+                  <li>alphaHTML</li>
+                  <br />
+                  <i>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Pellentesque ac mauris at risus consequat accumsan sit amet
+                    id leo. Fusce vestibulum erat vel consectetur aliquam.
+                    Integer a velit neque. Morbi at nibh a justo fringilla
+                    lobortis. Morbi vulputate nibh sem, ut volutpat ante
+                    placerat a. In arcu mi, ullamcorper ut est sit amet,
+                    ultrices consectetur dui. Sed a ullamcorper mi, quis
+                    pellentesque eros. Donec sit amet purus ac orci elementum
+                    maximus. Curabitur est nisl, blandit ut lectus non, placerat
+                    aliquet nunc.
+                  </i>
+                </p>
+                <br />
+                <p id="betaHTML">
+                  <li>betaHTML</li>
+                  <br />
+                  <b>
+                    Aenean ut bibendum augue. Cras id suscipit orci. Duis ex
+                    leo, placerat eu luctus id, porttitor et urna. Nullam
+                    pretium faucibus magna vel fermentum. Cras posuere ultrices
+                    ante in dapibus. Nulla ullamcorper nulla at elit fermentum,
+                    nec varius sem facilisis. Quisque sed arcu ipsum. Mauris
+                    ornare sodales tortor congue pretium. Vestibulum vestibulum
+                    purus ex, vitae maximus nibh imperdiet eget. Vestibulum ante
+                    ipsum primis in faucibus orci luctus et ultrices posuere
+                    cubilia curae;
+                  </b>
+                </p>
+              </ol>
+              <br /><br />
+              <h1><small>Lorem ipsum dolor sit amet</small></h1>
+              <h1>Lorem ipsum dolor<sub>sit amet</sub></h1>
+              <h1>Lorem ipsum dolor<sup>sit amet</sup></h1>
+              <h1><ins>Lorem ipsum dolor sit amet</ins></h1>
+              <h1><del>Lorem ipsum dolor sit amet</del></h1>
+            </div>
+            <br />
+          </article>
+          <hr />
+          <article>
+            <div class="article-header">
+              <h1 class="article-title">HTML5 응용과 실습</h1>
+              <p class="article-date">2023년 05월 24일</p>
+            </div>
+            <div class="article-body">
+              <img src="http://placeholder.com/430x280" />
+              <br />
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque ac mauris at risus consequat accumsan sit amet id
+                leo. Fusce vestibulum erat vel consectetur aliquam. Integer a
+                velit neque. Morbi at nibh a justo fringilla lobortis. Morbi
+                vulputate nibh sem, ut volutpat ante placerat a. In arcu mi,
+                ullamcorper ut est sit amet, ultrices consectetur dui. Sed a
+                ullamcorper mi, quis pellentesque eros. Donec sit amet purus ac
+                orci elementum maximus. Curabitur est nisl, blandit ut lectus
+                non, placerat aliquet nunc.
+              </p>
+              <br />
+              <p>
+                Aenean ut bibendum augue. Cras id suscipit orci. Duis ex leo,
+                placerat eu luctus id, porttitor et urna. Nullam pretium
+                faucibus magna vel fermentum. Cras posuere ultrices ante in
+                dapibus. Nulla ullamcorper nulla at elit fermentum, nec varius
+                sem facilisis. Quisque sed arcu ipsum. Mauris ornare sodales
+                tortor congue pretium. Vestibulum vestibulum purus ex, vitae
+                maximus nibh imperdiet eget. Vestibulum ante ipsum primis in
+                faucibus orci luctus et ultrices posuere cubilia curae;
+              </p>
+            </div>
+          </article>
+        </section>
+        <aside id="main-aside">
+          <div class="aside-list">
+            <h3>카테고리</h3>
+            <ul>
+              <li><a href="https://www.naver.com">네이버</a></li>
+              <li><a href="#">데이터</a></li>
+              <li><a href="#">데이터</a></li>
+              <li><a href="#">데이터</a></li>
+              <li><a href="#">데이터</a></li>
+              <li><a href="#">데이터</a></li>
+            </ul>
+          </div>
+          <div class="aside-list">
+            <h3>최근 글</h3>
+            <ul>
+              <li><a href="#">데이터</a></li>
+              <li><a href="#">데이터</a></li>
+              <li><a href="#">데이터</a></li>
+              <li><a href="#">데이터</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
 
-    <ol>
-      <li><h1 id="alpha">alpha</h1></li>
-      <p>
-        <i>
-          &nbsp; &lt; &gt &amp <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia earum
-          ducimus quas eligendi aliquam, nemo, nesciunt nihil ea hic ullam
-          tempora sed quis. Laborum cum fugiat dolor ipsum veritatis? Officiis!
-        </i>
-      </p>
+      <table border="1">
+        <thead>
+          <tr>
+            <th colspan="2">지역별 홍차</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th rowspan="3">중국</th>
+            <td>정산소종</td>
+          </tr>
+          <tr>
+            <td>운남</td>
+          </tr>
+          <tr>
+            <td>기문</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <li><h1 id="beta">beta</h1></li>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa ea
-        laborum temporibus. Ratione eveniet culpa vero mollitia. Ab culpa vitae
-        libero minus tenetur aut autem at dignissimos aliquam, possimus quidem!
-      </p>
-
-      <li><h1 id="gamma">gamma</h1></li>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem nemo
-        placeat numquam consequuntur, error, voluptatem voluptate, mollitia quis
-        unde in repellendus quam fugiat magnam tempora sunt maxime neque est at.
-      </p>
-    </ol>
-
-    <ul>
-      <li>
-        <b>과일</b>
-        <ol>
-          <li>사과</li>
-          <li>오렌지</li>
-          <li>바나나</li>
-        </ol>
-      </li>
-      <li>
-        <b>채소</b>
-        <ol>
-          <li>상추</li>
-          <li>치커리</li>
-          <li>양배추</li>
-        </ol>
-      </li>
-    </ul>
-
-    <table border="1">
-      <thead>
-        <tr>
-          <th colspan="2">지역별 홍차</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th rowspan="3">중국</th>
-          <td>정산소종</td>
-        </tr>
-        <tr>
-          <td>운남</td>
-        </tr>
-        <tr>
-          <td>기문</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <img
-      src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAxMjFfMjIg%2FMDAxNzA1ODAxNDQ2Nzk1.n-Z0Tuc8H_vHWvdKRDpHAl1pUOdsBjvwLJHuGB4jKLIg.7m-Fv2pG2OEyjZCaSndeY2rsj7VR3iyyw3uFU2EkKA4g.PNG.sweet-pro%2Fpapago-removebg-preview.png&type=a340"
-      alt="파파고"
-      width="300"
-    />
-    <img src="Penguins.jpg" alt="Penguins" width="300" />
-    <img src="nothing" alt="그림이 존재하지 않습니다." />
-
-    <audio src="nothing" controls="controls"></audio>
-
-    <video src="content_warning.webm" controls></video>
-
-    <video controls="controls">
-      <source src="content_warning.webm" type="video/webm" />
-    </video>
+      <img
+        src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAxMjFfMjIg%2FMDAxNzA1ODAxNDQ2Nzk1.n-Z0Tuc8H_vHWvdKRDpHAl1pUOdsBjvwLJHuGB4jKLIg.7m-Fv2pG2OEyjZCaSndeY2rsj7VR3iyyw3uFU2EkKA4g.PNG.sweet-pro%2Fpapago-removebg-preview.png&type=a340"
+        alt="파파고"
+        width="300"
+      />
+      <img src="Penguins.jpg" alt="Penguins" width="300" />
+      <img src="nothing" alt="그림이 존재하지 않습니다." />
+      <audio src="nothing" controls="controls"></audio>
+      <video controls="controls">
+        <source src="content_warning.webm" type="video/webm" />
+      </video>
+      <hr />
+      <footer id="main-footer">
+        <a href="#">ITCookBook HTML5 Programming</a>
+      </footer>
+    </div>
   </body>
 </html>
