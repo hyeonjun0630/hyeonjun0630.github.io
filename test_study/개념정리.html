@@ -62,6 +62,7 @@ id 클릭하면 해당 아이디 따라가기
 
 [NOTE!]
   - label 태그의 for 속성에 input 태그의 id 속성을 입력해 input 태그를 설명할 수 있다.
+    또한 label 태그(화면상의 "이름"부분 )를 클릭하면 input 태그(화면상의 "텍스트박스"부분)에 포커스.
   <form>
     <label for="name">이름</label>
     <input type="text" id="name" />
@@ -70,6 +71,7 @@ id 클릭하면 해당 아이디 따라가기
   - radio 버튼은 name 속성을 같게 입력해야 여러 항목 중 하나만 선택됨
     <input id="man" type="radio" name="gender" value="m">
     <label for="man">남자</label>
+
     <input id="woman" type="radio" name="gender" value="w">
     <label for="woman">여자</label>
 
@@ -80,11 +82,10 @@ id 클릭하면 해당 아이디 따라가기
       <option value="1">1</option>
       <option value="2">2</option>
     </select>
-    optgroup태그를 사용해 고택 옵션을 그룹으로 묶을 수 있음.
-    강노참고
 
-  - fieldset태그와 legend 태그로 입력 양식을 그룹으로 묶고 이름을 지정할 수 있다.
-  강노참고
+    optgroup태그를 사용해 선택 옵션을 그룹으로 묶을 수 있음. -> 강노참고
+
+  - fieldset태그와 legend 태그로 입력 양식을 그룹으로 묶고 이름을 지정할 수 있다. -> 강노참고
 
   - textarea태그 내 들여쓰기가 입력 양식 내부에 출력되므로 주의!!!!
     <textarea>
@@ -95,6 +96,8 @@ id 클릭하면 해당 아이디 따라가기
     <textarea>내용
     내용</textarea>로 작성해야함
 [NOTE!]
+[HTML 개념 끝]
+
 
 
 
@@ -132,7 +135,7 @@ id 클릭하면 해당 아이디 따라가기
 
   구조 선택자      = 선택자:first-child {속성:값;} => 선택자의 형제 요소 중 첫 번째 요소에 적용
                            :last-child {속성:값;} => 선택자의 형제 요소 중 마지막 요소에 적용
-                 중요!!!!! :nth-child(수열) {속성:값;} => 선택자의 형제 요소 중 수열 번째 요소에 적용(숫자도 가능)
+                 중요!!!!! :nth-child(수열) {속성:값;} => 선택자의 형제 요소 중 (수열) 번째 요소에 적용(숫자도 가능)
 
 
   선택자를 함께 사용하여 정확한 요소를 선택할 수 있다. li.select {...} -> li태그 중 class가 select인 요소에 적용
@@ -191,4 +194,65 @@ Common Property Types
                = background-repeat: no-repeat;                (배경 이미지 반복 방법 지정)
                = background-position: center;                 (배경 이미지 위치 지정)
                = background-attachment: fixed;                (배경 이미지 고정 여부 지정)
-               = background-size: 100px 100px;                (배경 이미지 크기 지정) -->
+               = background-size: 100px 100px;                (배경 이미지 크기 지정)
+
+
+
+글자 속성 = font (190)
+  - font = font-style: italic;          (글자 스타일 지정)
+         = font-weight: bold;           (글자 두껍게 지정)
+         = font-size: 20px;             (글자 크기 지정)
+         = font-family: "맑은 고딕";    (글자 폰트 지정)
+         = line-height: 1.5;            (줄 간격 지정)
+         = text-decoration: underline;  (글자 밑줄 지정)
+         = text-transform: uppercase;   (글자 대문자로 지정)
+         = letter-spacing: 2px;         (글자 간격 지정)
+         = word-spacing: 2px;           (단어 간격 지정)
+         = text-indent: 20px;           (들여쓰기 지정)
+         = white-space: nowrap;         (공백 처리 지정)
+         = text-overflow: ellipsis;     (글자가 넘칠 때 처리 방법 지정)
+         = overflow: hidden;            (넘친 내용 처리 방법 지정)
+         = word-wrap: break-word;       (긴 단어 처리 방법 지정)
+         = word-break: break-all;       (긴 단어 처리 방법 지정)
+         = hyphens: auto;               (하이픈 처리 방법 지정)
+  중요!! = text-align: center;          (글자 정렬 지정)
+                     : justify;         justify는 "양쪽 정렬"로 마지막 줄을 제외한 모든 줄이 같은 길이로 맞춰짐
+             <span class="font_center">Lorem ipsum dolor amet</span> -> inline이라 정렬이 안 렬
+             <p class="font_center">Lorem ipsum dolor amet</p>       -> block이라 정렬이 됨
+
+
+   - 글자 수직정렬하기 = 글자의 line-height와 글자를 감싸는 박스의 height를 같게 설정하면 수직정렬이 됨
+     (216)             = line-height: 100px; height: 100px; => 수직정렬됨
+                       = line-height: 100px; height: 50px; => 수직정렬 안 됨
+
+
+
+위치속성 = position (220)
+  - position = static;          (기본값, 요소를 일반적인 문서 흐름에 따라 위에서 아래로 배치)
+             = relative;        (초기 위치를 기준으로 상하좌우로 이동)
+             = absolute;        (절대 위치로 좌표 설정)
+             = fixed;           (브라우저 창 기준으로 절대 위치로 좌표 설정)
+
+  - top, right, bottom, left 속성을 사용해 위치를 지정
+    ex) position: absolute; top: 10px; right: 10px; => 오른쪽 상단에 위로
+
+  - z-index 속성을 사용해 요소의 쌓임 순서를 지정
+    ex) z-index: 10; => z-index가 높을수록 위에 쌓정
+    
+  - 자식 요소의 위치를 부모 요소를 기준으로 움직이게 지정하려면 부모 요소에 position: relative;를 지정해야 함 (226)
+    ex) 부모 요소에 position: relative; 자식 요소에 position: absolute; top: 10px; right: 10px; => 부모 요소를 기준으로 위치 지정
+    
+유동속성 = float = 그림을 글자처럼 취급하여 텍스트가 그림 주위로 흐르게 함
+          - float 속성을 사용해 요소를 좌우로 이동
+            ex) float: left; => 왼쪽으로 이동
+                float: right; => 오른쪽으로 이동
+
+
+그림자 속성 = box-shadow, text-shadow (235)
+            - box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); => 그림자 효과 지정
+            - text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); => 글자에 그림자 효과 지정
+[CSS 개념 끝]
+
+
+
+[JavaScript 개념] -->
