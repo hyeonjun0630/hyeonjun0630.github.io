@@ -102,6 +102,9 @@ id 클릭하면 해당 아이디 따라가기
 
 
 [CSS 개념]
+
+<link rel="stylesheet" href="style.css" /> 으로 외부 css 파일 불러올 수 있음.
+
 선택자 (강노 90~107)
   전체 선택자      = * {속성:값;} => 모든 요소에 적용
 
@@ -117,8 +120,8 @@ id 클릭하면 해당 아이디 따라가기
   자손 선택자      = 선택자 > 선택자 {속성:값;} => 선택자의 자식 요소에 적용(후손X)
                    = #header > h1 {속성:값;} => header id를 가진 요소의 자식 h1 요소에 적용
                    [NOTE!!] table 태그에 스타일을 적용할 때는 자손 선택자를 사용하면 안 됨.
-                   table > tr > td {속성:값;} => 이렇게 사용하면 안 됨.
-                   table tr td {속성:값;} => 이렇게 사용해야 함.
+                   table > tr > th {속성:값;} => 이렇게 사용하면 안 됨.
+                   table th {속성:값;}        => 이렇게 사용해야 함.
 
   반응 선택자      = 선택자:상태 {속성:값;} => 선택자의 상태에 따라 적용
                    = div:hover {color:red;} => div태그에 마우스를 올렸을 때 색상 변경
@@ -126,12 +129,16 @@ id 클릭하면 해당 아이디 따라가기
 
   속성 선택자      = 선택자[속성=값] {속성:값;} => 특정한 속성 내부 값이 특정 값과 일치할 때 적용
                    = input[type="text"] {속성:값;} => input 태그의 type이 text인 요소에 적용
+                   [응용]
+                    = input[type="text"]:focus {background-color: red;} => input 태그의 type이 text인 요소에 포커스가 맞춰졌을 때 색상 변경
+                    = input[type="radio"]:checked + label {color: red;} => input 태그의 type이 radio인 요소가 체크되었을 때 label태그에 색상 변경
 
 
   상태 선택자      = 선택자:상태 {속성:값;} => 선택자의 상태에 따라 적용
                    = input:enabled {background-color: red;} => input태그가 활성화(사용 가능할때)되었을 때 색상 변경
                    = input:disabled {background-color: red;} => input태그가 비활성화(사용 불가능할때)되었을 때 색상 변경
-
+                   = input:checked {background-color: red;} => input태그가 체크되었을 때 색상 변경
+                   = input:focus {background-color: red;} => input태그에 포커스가 맞춰졌을 때 색상 변경
 
   구조 선택자      = 선택자:first-child {속성:값;} => 선택자의 형제 요소 중 첫 번째 요소에 적용
                            :last-child {속성:값;} => 선택자의 형제 요소 중 마지막 요소에 적용
@@ -166,7 +173,7 @@ Common Property Types
 
 박스 속성 = width, height, margin, padding, border (154)
   - border 기준 안쪽   = padding
-              바깥쪽 = margin
+                바깥쪽 = margin
 
   - 마진 상쇄 = 두 요소의 마진이 겹칠 때 큰 마진만큼만 적용됨 (상하좌우 모두 적용됨)
               = 따라서 두 요소의 마진이 겹치지 않게 하려면 두 요소 사이에 border, padding을 넣어야 함.
@@ -195,6 +202,7 @@ Common Property Types
                = background-position: center;                 (배경 이미지 위치 지정)
                = background-attachment: fixed;                (배경 이미지 고정 여부 지정)
                = background-size: 100px 100px;                (배경 이미지 크기 지정)
+               한번에 입력도 가능하긴 하다.
 
 
 
@@ -231,7 +239,7 @@ Common Property Types
   - position = static;          (기본값, 요소를 일반적인 문서 흐름에 따라 위에서 아래로 배치)
              = relative;        (초기 위치를 기준으로 상하좌우로 이동)
              = absolute;        (절대 위치로 좌표 설정)
-             = fixed;           (브라우저 창 기준으로 절대 위치로 좌표 설정)
+             = fixed;           (스크롤과 상관없이 항상 문서 가장 좌측 상단을 기준으로 좌표를 설정한다.)
 
   - top, right, bottom, left 속성을 사용해 위치를 지정
     ex) position: absolute; top: 10px; right: 10px; => 오른쪽 상단에 위로
@@ -244,16 +252,222 @@ Common Property Types
     
 유동속성 = float = 그림을 글자처럼 취급하여 텍스트가 그림 주위로 흐르게 함
           - float 속성을 사용해 요소를 좌우로 이동
-            ex) float: left; => 왼쪽으로 이동
-                float: right; => 오른쪽으로 이동
+            ex) float: left; => 왼쪽으로 이동     = 왼쪽부터 배치
+                float: right; => 오른쪽으로 이동  = 오른쪽부터 배치
 
 
 그림자 속성 = box-shadow, text-shadow (235)
             - box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); => 그림자 효과 지정
             - text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5); => 글자에 그림자 효과 지정
+
+
+
+
+
+css layout = 
+
+
+
+
+
+flex
+하나의 아이템이 자신의 컨테이너(블록)가 차지하는 공간에 맞추기 위해
+크기를 키우거나 줄이는 방법을 설정하는 속성이다.
+Flex가 나오기 전에는 float: left, float: right 등으로 다소 까다롭게 레이아웃을 배치해야했었다.
+속성으론 컨테이너에 적용하는 속성과 아이템에 적용하는 속성이 있다.
+
+grid
+기본적으로 Flex와 비슷하지만 Flex와의 큰 차이점은
+- Flex는 한 방향 레이아웃 시스템이고 (1차원)
+- Grid는 두 방향(가로-세로) 레이아웃 시스템 (2차원)
+이다. 따라서 Flex보다 더 복잡하고, 복합적인 레이아웃을 만들 수 있다.
+
+
+
+
+
+
+
 [CSS 개념 끝]
 
 
 
-[JavaScript 개념] 
-248부터-->
+[JavaScript 개념] (248)
+
+C와는 다르게 함수도 객체로 취급됨
+따라서 함수를 변수에 할당하거나 함수를 다른 함수의 인수로 전달할 수 있음.
+
+<script src="script.js"></script> 으로 외부 js 파일 불러올 수 있음.
+
+css와는 다르게 변수명에 -를 사용할 수 없으며 대소문자를 구분함.
+따라서 변수명에 카멜케이스를 사용함.
+
+동적 타입 언어이기 때문에 변수의 타입을 선언하지 않아도 됨.
+그러나 변수라는 것을 알려주기 위한 키워드는 존재함.
+  [키워드]
+    - var
+    기본적으로 JS에서 변수선언하는 키워드.
+    함수 범위 변수 선언을 가능하게 함.
+    원래 이것만 존재했으나, 중복선언이 가능하며, 예기치 못한 값을 반환할 수 있는 문제,
+    함수 외부에서 선언한 변수는 모두 전역변수가 되어버리는 문제,
+    변수 선언문 이전에 변수를 참조하게되면 언제나 undifined를 반환하는 문제가 발생하여
+    밑의 let, const로 문제를 해결했다.
+    
+    - let
+    블록 범위 지역 변수 선언을 가능하게 함.
+    중복선언 불가능. 그러나 재할당은 가능하다. 선언과 초기화를 따로 해도 상관없다.
+    
+    - const
+    블록 범위 상수 선언을 가능하게 함.
+    선언과 초기화가 동시에 이루어져야하며, 재할당도 불가능하다.
+    
+변수 선언 방법
+  - var 변수명 = 값; => 변수 선언 및 초기화
+  - var 변수명; => 변수 선언
+  - 변수명 = 값; => 변수 초기화
+
+메소드
+  alert() = 경고창을 띄움                 => alert("Hello World!");
+  prompt() = 사용자에게 입력창을 띄움     => let answer = prompt("이름을 입력하세요.");
+  confirm() = 사용자에게 확인창을 띄움    => let answer = confirm("정말로 삭제하시겠습니까?");
+  console.log() = 콘솔에 출력함           => console.log("Hello World!");
+  document.write() = 문서에 출력함        => document.write("Hello World!");
+
+
+데이터 타입
+  - 레퍼런스 타입 = 객체를 가리키기 위한 타입 (포인터처럼 동작)
+  - primitive 타입 = 단순히 타입만 가지고 있는, 객체가 아닌 데이터를 위한 타입
+    = boolen, null, undefined, number, string
+  
+  ex) let x = 10;          => x는 primitive number 타입
+      let y = "Hello";     => y는 primitive string 타입
+      
+      let z = y;           => z는 reference string 타입
+      let foo = [1, 2, 3]; => foo는 reference 배열 타입
+      let bar = foo;       => bar는 reference 배열 타입
+
+
+빌트인 객체
+  - 빌트인 객체 = 자바스크립트에서 기본적으로 제공하는 객체
+  - 빌트인 객체 종류 = Date, Math, String, Number, Boolean, Object, Function, DataView 등
+      let date = new Date(); => 현재 날짜와 시간을 반환
+      let abd = date.toString(); => 날짜와 시간을 문자열로 반환
+
+      let math = Math.PI;    => 원주율을 반환
+
+
+concatenation = 문자열을 합치는 것
+  - 문자열 합치기 = 문자열 + 문자열
+  - 문자열과 변수 합치기 = 문자열 + 변수
+  - 문자열과 변수 합치기 = `문자열 ${변수}`
+
+  ex) let name = "홍길동";
+      let age = 20;
+      let message = `안녕하세요. 제 이름은 ${name}이고, 나이는 ${age}살 입니다.`;
+      console.log(message); => 안녕하세요. 제 이름은 홍길동이고, 나이는 20살 입니다.
+
+
+자료형(273)
+
+조건문(287)
+  - 주의할 연산자: ==, ===, !=, !==
+    == : 값만 비교         => (x == 9 ture | x == "9" true)
+    === : 값과 타입 비교   => (x === 9 false | x === "9" true)
+    != : 값만 비교         => (x != 9 false | x != "9" false)
+    !== : 값과 타입 비교   => (x !== 9 true | x !== "9" false)
+
+
+루프문(292)
+  for 루프 활용
+  - for in 루프 = 객체의 속성을 반복 => for (let key in object) {console.log(key);}
+  - for of 루프 = 배열의 요소를 반복 
+   => for (let value of years) {    =    for (let i = 0; i < array.length; i++) {
+        console.log(value);                let yr = years[i];
+      }                                    console.log(yr); }
+
+
+배열(318)
+  - 배열 선언 방법
+    - 키워드 배열명 = [요소1, 요소2, 요소3];
+    - 키워드 배열명 = new Array(요소1, 요소2, 요소3);
+    - 키워드 배열명 = new Array(3); => 3개의 요소를 가진 배열 생성
+
+  - 배열 요소 접근 방법
+    - 배열명[인덱스] = 요소값
+    - 배열명.length = 배열의 길이
+
+  - 배열 메소드
+    - 배열명.push(요소) = 배열의 끝에 요소 추가
+    - 배열명.pop() = 배열의 끝 요소 제거
+    - 배열명.shift() = 배열의 첫 요소 제거
+    등등
+
+  - 스프레드 연산자 = 배열을 복사하거나 합칠 때 사용
+    - let arr1 = [1, 2, 3];
+      let arr2 = [...arr1]; => arr1을 복사하여 arr2에 저장
+      let arr3 = [...arr1, 4, 5]; => arr1에 4, 5를 추가하여 arr3에 저장
+
+
+객체(327)
+  - 객체 선언 방법
+    - 키워드 객체명 = {키:값, 키:값, 키:값};
+    - 키워드 객체명 = new Object(); => 빈 객체 생성
+
+
+
+
+
+
+
+
+
+
+
+
+함수(325)
+  - 함수 선언 방법
+    - 함수 선언식 = function 함수명(매개변수) {함수 내용}
+    - 함수 표현식 = var 함수명 = function(매개변수) {함수 내용}
+    - 화살표 함수 = var 함수명 = (매개변수) => {함수 내용}
+
+  - 함수 선언식 (Function Declarations)
+    일반적인 프로그래밍 코드에서 사용하는 함수 선언방식.
+    
+    function foo() {
+    return "이것은 함수입니다.";
+    }
+    
+  - 함수 표현식 (Function Expressions)
+    자바스크립트 함수는 표현식을 사용하여 정의 될 수 있으며, 함수 표현식은 변수로 저장될수 있다.
+    
+    e.g. ) `var x = function (a, b) {return a * b};`
+    
+    함수 표현식이 변수에 저장되면, 변수는 함수처럼 사용 가능해진다.
+    변수에 저장된 함수는 함수명이 필요 없으며, 변수 이름을 통하여 호출된다.
+    
+    함수 선언식은 코드가 실행되기 전에 로드되지만, 함수 표현식은 인터프리터가 해당 코드 줄에 도달 할 때만 로드된다.
+
+
+함수 선언 방법
+  - 함수 선언식 = function 함수명(매개변수) {함수 내용}
+  - 함수 표현식 = var 함수명 = function(매개변수) {함수 내용}
+  - 화살표 함수 = var 함수명 = (매개변수) => {함수 내용}
+
+
+
+  함수 선언식 (Function Declarations)
+  일반적인 프로그래밍 코드에서 사용하는 함수 선언방식.
+  
+  function foo() {
+  return "이것은 함수입니다.";
+  }
+  
+  함수 표현식 (Function Expressions)
+  자바스크립트 함수는 표현식을 사용하여 정의 될 수 있으며, 함수 표현식은 변수로 저장될수 있다.
+  
+  e.g. ) `var x = function (a, b) {return a * b};`
+  
+  함수 표현식이 변수에 저장되면, 변수는 함수처럼 사용 가능해진다.
+  변수에 저장된 함수는 함수명이 필요 없으며, 변수 이름을 통하여 호출된다.
+  
+  함수 선언식은 코드가 실행되기 전에 로드되지만, 함수 표현식은 인터프리터가 해당 코드 줄에 도달 할 때만 로드된다. -->
