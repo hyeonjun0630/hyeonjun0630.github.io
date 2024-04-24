@@ -96,7 +96,13 @@ id 클릭하면 해당 아이디 따라가기
     <textarea>내용
     내용</textarea>로 작성해야함
 [NOTE!]
+
+반응형 웹(460) = 웹사이트가 사용자의 화면 크기에 맞춰 자동으로 크기를 조절하는 것
+반응형 웹패턴
+==> 반응형 = 시험 엑스트라정도의 분량
 [HTML 개념 끝]
+
+
 
 
 
@@ -235,11 +241,12 @@ Common Property Types
 
 
 
-위치속성 = position (220)
+위치속성 = position (220~226)(393~400)
   - position = static;          (기본값, 요소를 일반적인 문서 흐름에 따라 위에서 아래로 배치)
              = relative;        (초기 위치를 기준으로 상하좌우로 이동)
              = absolute;        (절대 위치로 좌표 설정)
              = fixed;           (스크롤과 상관없이 항상 문서 가장 좌측 상단을 기준으로 좌표를 설정한다.)
+             = sticky;          (스크롤 위치에 따라 상하좌우로 이동)
 
   - top, right, bottom, left 속성을 사용해 위치를 지정
     ex) position: absolute; top: 10px; right: 10px; => 오른쪽 상단에 위로
@@ -249,9 +256,10 @@ Common Property Types
     
   - 자식 요소의 위치를 부모 요소를 기준으로 움직이게 지정하려면 부모 요소에 position: relative;를 지정해야 함 (226)
     ex) 부모 요소에 position: relative; 자식 요소에 position: absolute; top: 10px; right: 10px; => 부모 요소를 기준으로 위치 지정
-    
+   
+
 유동속성 = float = 그림을 글자처럼 취급하여 텍스트가 그림 주위로 흐르게 함
-          - float 속성을 사용해 요소를 좌우로 이동
+(227, 393) - float 속성을 사용해 요소를 좌우로 이동
             ex) float: left; => 왼쪽으로 이동     = 왼쪽부터 배치
                 float: right; => 오른쪽으로 이동  = 오른쪽부터 배치
 
@@ -262,33 +270,106 @@ Common Property Types
 
 
 
+css layout(389) = 위치속성과 가시속성, 유동속성, css를 활용하여 꾸미기
+                  => 위치속성(position) + 가시속성(visibility) + 유동속성(float) + css (hover)
+                     작은 이미지에 마우스를 올리면 큰 이미지가 나타나는 효과 생성
+                     강노 400 참고
 
 
-css layout = 
+                = 398페이지 new 배너 숨기기 예제. 자바스크립트 사용
 
 
+Flex와 Grid(403)
+  참고자료 : https://studiomeal.com/archives/197
+  flex = Flex는 요소를 유연하게 배치하기 위한 레이아웃 시스템이다.
+         Flex는 요소를 가로 또는 세로로 정렬하거나, 요소의 크기를 조절하거나, 요소의 순서를 변경하는 등의 다양한 레이아웃을 만들 수 있다.
+         따라서 float로 세로 두 줄 레이아웃을 만들 때보다 훨씬 간단하게 만들 수 있다.
+         Flex는 컨테이너와 아이템으로 구성되며, 컨테이너에 적용하는 속성과 아이템에 적용하는 속성이 있다.
+       
+        = .container {
+            display: flex; => 컨테이너를 Flex 컨테이너로 지정
+            fles-wrap: wrap; => 요소가 컨테이너를 벗어나면 다음 줄로 이동하라는 의미
+          }
+          .container div {
+            flex: 1 1 100px; => flex-grow, flex-shrink, flex-basis 순서로 작성
+          }                     flex-grow: 1; => 남은 공간이 있으면 늘려서 모두 차지하라는 의미
+                                flex-shrink: 1; => 요소가 컨테이너보다 작을 때 요소를 줄이라는 의미
+                                flex-basis: 100px; => 기본 크기를 100px로 지정
+       
+        = 방향 정렬 =
+          flex-direction: row; => 요소를 왼쪽에서 오른쪽으로 정렬
+          flex-direction: column; => 요소를 위에서 아래로 정렬
+
+        = 가로정렬 = 
+          justify-content: flex-start; => 요소를 왼쪽으로 정렬
+          justify-content: flex-end; => 요소를 오른쪽으로 정렬
+          justify-content: center; => 가로 중앙정렬
+          justify-content: space-between; => 요소 사이의 간격을 최대로 설정
+
+        = 세로정렬 =
+          align-items: flex-start; => 요소를 위로 정렬
+          align-items: flex-end; => 요소를 아래로 정렬
+          align-items: center; => 세로로 중앙정렬
+          align-items: space-between; => 요소 사이의 간격을 최대로 설정
+
+        = 아이템 중앙 정렬 = (410)
+          align-items: center; => 세로 가운데 정렬
+          justify-content: center; => 가로 가운데 정렬
+        
+        = 활용 =
+          - 카드 레이아웃 (412)
+          - 네비게이비션 바 (411)
+
+  grid = Grid는 2차원(가로-세로) 레이아웃 시스템이다.
+       = Flex와 비슷하지만 Flex는 1차원 레이아웃 시스템이고(가로만, 세로만)
+         Grid는 2차원 레이아웃 시스템이다. (가로 세로 동시)
+
+       = .container {
+           display: grid; => 컨테이너를 Grid 컨테이너로 지정
+           grid-template-columns: repeat(3, 1fr); => 3개의 열을 시성하고 각 열의 너비를 균등하게 나눔
+          }                                          : grid-template-columns: 1fr 1fr 1fr;와 같음
+         .container div {
+           grid-area: header; => 템플릿 영역을 지정
+         }
+      
+       = gap 속성을 사용해 각 셀 사이의 간격을 지정할 수 있다.
+         .container {
+           gap: 10px; => 각 셀 사이의 간격을 10px로 지정
+         }
+
+       = 정렬 방법
+         - justify-items: center; => 가로 정렬
+         - align-items: center; => 세로 정렬
+         420~421페이지 참고
+
+       = 화상키보드, nested grids(422) 등 활용 가능
 
 
-
-flex
-하나의 아이템이 자신의 컨테이너(블록)가 차지하는 공간에 맞추기 위해
-크기를 키우거나 줄이는 방법을 설정하는 속성이다.
-Flex가 나오기 전에는 float: left, float: right 등으로 다소 까다롭게 레이아웃을 배치해야했었다.
-속성으론 컨테이너에 적용하는 속성과 아이템에 적용하는 속성이 있다.
-
-grid
-기본적으로 Flex와 비슷하지만 Flex와의 큰 차이점은
-- Flex는 한 방향 레이아웃 시스템이고 (1차원)
-- Grid는 두 방향(가로-세로) 레이아웃 시스템 (2차원)
-이다. 따라서 Flex보다 더 복잡하고, 복합적인 레이아웃을 만들 수 있다.
+수평 정렬 레이아웃(426~431) = 자손에게 float, 부모의 overflow 속성에 hidden 키워드 사용
+중앙 정렬 레이아웃(432~435) = 중앙 정렬할 태그에 width 속성을 부여하고 margin 속성을 ‘0 auto’로 입력.
+One True 정렬 레이아웃(436~441) = ①부모 태그에 고정된 너비를 지정.
+                                  ②수평 정렬하는 부모 태그의 overflow 속성에 hidden을 적용.
+                                  ③자손 태그에 적당한 너비를 입력하고 float 속성을 적용.
 
 
+요소배치 = 부모기준 절대위치(absolute) = 부모 relative, 자식 absolute하면 부모 위를 기준삼아 자식이동.
+         = 중앙배치 = 중앙 정렬하려는 div 태그의 position 속성을 absolute로 지정.
+                      left 속성과 top 속성을 모두 50%로 지정.
+                      중앙에 정렬하려는 div 태그의 margin-left 속성과 margin-top 속성에 음수를 입력.
+         = 고정배치 = 고정하려는 태그의 position 속성을 fixed로 지정하고 고정시키고 싶은 위치에 top, left 등을 0으로 지정
 
 
-
-
+글자 생략 = text-overflow: ellipsis;  => 글자가 넘칠 때 생략 부호(...)를 표시
+(457)       white-space: nowrap;      => 글자가 넘칠 때 줄바꿈을 하지 않고 한 줄로 표시
+            overflow: hidden;         => 넘친 글자를 숨김
+            width: 100px;             => 너비를 100px로 지정
 
 [CSS 개념 끝]
+
+
+
+
+
 
 
 
@@ -409,65 +490,277 @@ concatenation = 문자열을 합치는 것
 
 
 객체(327)
-  - 객체 선언 방법
+  - 객체 선언 방법 (약간 배열과 비슷함)
     - 키워드 객체명 = {키:값, 키:값, 키:값};
-    - 키워드 객체명 = new Object(); => 빈 객체 생성
+      const objName = {
+        key1: value1,
+        key2: value2,
+        key3: value3
+      };
+    
+    - 키워드 객체명 = new Object();
+      const objName = new Object(); => 빈 객체 생성
+
+      const objName = {}; => 빈 객체 생성
+
+    - let hello = new String("Hello World!"); => 문자열 객체 생성
+      let num = new Number(10); => 숫자 객체 생성
+      let bool = new Boolean(true); => 불리언 객체 생성
+    
+    - 객체 내부에 객체 생성 가능. 배열도 가능. (333)
 
 
+  - 객체 개요, 속성 접근 방법(~347)
+    - 객체명.키
+    - 객체명["키"]
+    - 반복문 접근법
+      for (let key in obj) {
+        console.log(key, obj[key]);
+      }
 
 
-
-
-
-
-
-
-
-
-함수(325)
+함수(349)
   - 함수 선언 방법
     - 함수 선언식 = function 함수명(매개변수) {함수 내용}
     - 함수 표현식 = var 함수명 = function(매개변수) {함수 내용}
     - 화살표 함수 = var 함수명 = (매개변수) => {함수 내용}
 
-  - 함수 선언식 (Function Declarations)
-    일반적인 프로그래밍 코드에서 사용하는 함수 선언방식.
-    
-    function foo() {
-    return "이것은 함수입니다.";
+    - 함수 선언식 (Function Declarations)
+      function 함수() {
+        return "이것은 선언적 함수입니다.";
+      }
+
+      let 함수 = function() {
+        return "이것은 익명 함수입니다.";
+      }
+      
+    - 함수 표현식 (Function Expressions)
+      자바스크립트 함수는 표현식을 사용하여 정의 될 수 있으며, 함수 표현식은 변수로 저장될수 있다.
+      e.g. ) `var x = function (a, b) {return a * b};`
+     명
+      함수 표현식이 변수에 저장되면, 변수는 함수처럼 사용 가능해진다.
+      변수에 저장된 함수는 함수명이 필요 없으며, 변수 이름을 통하여 호출된다.(Anonymous Functions)
+
+
+  - 함수 자체가 객체라 ()를 붙이지 않으면 함수 내용이 출력됨
+    - 함수명(); => 함수 호출
+    - 함수명; => 함수 내용 출력
+
+    const foo = function() {
+      return "Hello World!";
+    };
+    alert(foo); => 함수 내용 출력
+    alert(foo()); => 함수 호출
+
+  - 함수 매개변수 초기값 지정가능
+    - function foo(a = 10, b = 20) {
+        return a + b;
+      }
+      console.log(foo()); => 30
+      console.log(foo(5)); => 25
+      console.log(foo(5, 5)); => 10
+
+  - rest operator = 함수의 매개변수로 전달된 인수를 배열로 받을 수 있음
+    - function foo(...args) {
+        return args;
+      }
+      console.log(foo(1, 2, 3, 4, 5)); => [1, 2, 3, 4, 5]
+
+  - nested function = 함수 내부에 함수를 선언할 수 있음
+    - function foo() {
+        function bar() {
+          return "Hello World!";
+        }
+        return bar();
+      }
+      console.log(foo()); => Hello World!
+
+
+  - 콜백 함수 = 함수의 매개변수로 전달되는 함수
+    function callTenTimes(callback) {
+      for (let i = 0; i < 10; i++) {
+        callback();
+      }
     }
     
-  - 함수 표현식 (Function Expressions)
-    자바스크립트 함수는 표현식을 사용하여 정의 될 수 있으며, 함수 표현식은 변수로 저장될수 있다.
+    let fun=function () {                 or    callTenTimes(function() {
+      alert('함수 호출');                         alert('팝업 호출');
+    };                                          });
+
+    callTenTimes(fun); => 팝업 10번 호출
+
+
+돔, Document(494) = 문서 객체: HTML 태그를 자바스크립트에서 사용할 수 있는 객체로 만든 것.
+  - 사용법 = 헤드에 넣어쓰기
+              <script>
+                window.onload = function() {
+                  // 자바스크립트 코드
+                };
+              </script>
+            = 바디에 넣어쓰기
+              <body>
+               본문
+                <script> // 마지막에 넣어쓰기
+                // 자바스크립트 코드
+                </script>
+              </body>
+
+  - 돔 접근 방법
+    - selction method (한글 설명 = 557페이지 참고)
+      - document.getElementById("id"); => id로 요소를 찾음
+      - document.getElementsByClassName("class"); => class로 요소를 찾음
+      - document.getElementsByTagName("tag"); => 태그로 요소를 찾음
+      - document.querySelector("css"); => css 선택자로 해당 선택자를 쓰는 첫번째 요소를 찾음
+      - document.querySelectorAll("css"); => css 선택자로 요소를 모두 찾음
+        ex) querySelector("#main div time"); => id가 main인 요소의 자식 div 요소의 첫번째 time 요소를 찾음
+            querySelectorAll("#main div time"); => id가 main인 요소의 자식 div 요소의 모든 time 요소를 찾음
+
+  - 요소
+    ex) let element = document.getElementById("id");
+        element.innerHTML = "Hello World!"; => 요소 내용 변경
+
+  - 돔 조작 방법(505)
+    - 요소.innerHTML = "내용"; => 요소 내용 변경    (태그 포함, html내부 내용을 변경)
+    - 요소.textContent = "내용"; => 요소 내용 변경  (태그 미포함, 문자열만 변경)
+    - 요소.style.속성 = "값"; => 요소 스타일 변경   (js에선 카멜케이스로 작성)
+    - 요소.addEventListener("이벤트", 함수); => 이벤트 추가
+    - 요소.removeEventListner("이벤트", 함수); => 이벤트 제거
+      => 회원가입 유효성검사 예제 참고(582페이지)
+
+    ex 1)
+    <script>
+      // 이벤트를 연결합니다.
+      window.onload = function () {
+        // 변수를 선언합니다.
+        let output = '';
+        for (let i = 0; i < 10; i++) {
+          output += '<h1>Header - ' + i + '</h1>';
+        }
+        // 문서 객체 내부의 글자를 변경합니다. 따라서 html 전문을 순수 텍스트로 가져옴
+        document.body.textContent = output;
+        // innerHTML 속성을 사용합니다. 따라서 html을 수정함, 바뀐 내용이 html로 출력됨
+        document.body.innerHTML = output;
+      };
+    </script>
+
+    ex 2)
+    const node = document.getElementbyId("id");
+
+    node.innerHTML = "Hello World!";
+    node.style.backgroundColor = "red";
+    node.addEventListener("click", function() {
+      alert("Hello World!");
+    });
+
+
+  - 이벤트 = 사용자의 동작에 의해 발생하는 것 (513)
+    - 마우스 이벤트 = click, dblclick, mouseover, mouseout, mousedown, mouseup, mousemove
+    - 키보드 이벤트 = keydown, keyup, keypress
+    - 입력 이벤트 = focus, blur, change, input
+    - 윈도우 이벤트 = load, resize, scroll, unload
+    - 폼 이벤트 = submit, reset, change, select
+    - 기타 이벤트 = error, select, contextmenu
+
+    ex)
+        <script>
+        document.getElementById("key").addEventListener("keydown",
+          function (e) {
+            let keyPressed=e.key;
+            let character=String.fromCharCode(keyPressed);
+            alert("Key " + character + " was pressed");
+        });
+
+        document.querySelector("#loginForm").addEventListener("submit",
+          function (e) {
+            let pass = document.querySelector("#pw").value;
+            if (pass=="") {
+              alert ("enter a password");
+              e.preventDefault();
+          }
+        });
+        </script>
     
-    e.g. ) `var x = function (a, b) {return a * b};`
+    - 요소.addEventListener("이벤트", 함수); => 이벤트 추가
+    - 아래 세 코드는 같은 기능을 함
+
+      const btn = document.getElementById("btn");     => id가 btn인 요소를 찾음
+      btn.addEventListener("click", function() {      => 클릭했을 때 이벤트 발생
+        alert("Hello World!");                        => Hello World! 출력
+      });
+      --------------------------------------------------------------------------
+      document.querySelector("#btn").addEventListener("click", function() { => id가 btn인 요소 중 첫번째를 찾아서 클릭했을 때 이벤트 발생
+        alert("Hello World!");
+      });
+      --------------------------------------------------------------------------
+      document.querySelector("#btn").addEventListener("click", () => {      => 화살표 함수로도 가능
+        alert("Hello World!");
+      });
+
+
+    - 아쉽게도 리스트에는 addEventListener가 없음 (516)
+      따라서 for문을 사용하여 각 요소에 이벤트를 추가해야 함
+      ex) const btns = document.querySelectorAll("#list button");
+          for (let i = 0; i < list.length; i++) {               or   for(let bt of btns) {
+            list[i].addEventListener("click", function() {            bt.addEventListener("click", function() {
+              alert("Hello World!");                                    alert("Hello World!");
+            });                                                      });
+
     
-    함수 표현식이 변수에 저장되면, 변수는 함수처럼 사용 가능해진다.
-    변수에 저장된 함수는 함수명이 필요 없으며, 변수 이름을 통하여 호출된다.
+    - 인라인 이벤트 = HTML 요소에 직접 이벤트를 추가하는 방법
+      [in HTML]
+      - <button onclick="alert('Hello World!')">Click Me</button>
+      - <button onmousemove="alert('Hello World!')">Mouse Move</button>
+      [in head + body]
+      - <script>
+          function hello() {
+            alert("Hello World!");
+          }
+        </script>
+        <body>
+          <button onclick="hello()">Click Me</button>
+        </body>
+
+
+    - 이벤트 객체 e = 이벤트가 발생했을 때 이벤트에 대한 정보를 가지고 있는 객체
+      - 이벤트 객체의 속성
+        - type = 이벤트 타입
+        - target = 이벤트가 발생한 요소
+        - clientX, clientY = 브라우저 창을 기준으로 마우스의 x, y 좌표
+        등등
+
+      - 이벤트 객체 사용 방법
+        - 요소.addEventListener("이벤트", function(e) {함수});
+        - 요소.addEventListener("이벤트", (e) => {함수});
+
+        ex) const btn = document.getElementById("btn");
+            btn.addEventListener("click", function(e) {
+              console.log(e.target); => 이벤트가 발생한 요소 출력
+            });
+
+            btn.addEventListener("click", (e) => {
+              console.log(e.target); => 이벤트가 발생한 요소 출력
+            });
+
+        ex) 메뉴 선택시 해당 메뉴 토글하기 = 520페이지 참고
+
+
+    - 이벤트 전파 = 이벤트가 발생한 요소에서 상위 요소로 전파되는 것 (523~525)
+      - 이벤트 전파 방지 = 이벤트가 발생한 요소에서 상위 요소로 전파되는 것을 막음
     
-    함수 선언식은 코드가 실행되기 전에 로드되지만, 함수 표현식은 인터프리터가 해당 코드 줄에 도달 할 때만 로드된다.
 
+    - 이벤트 위임 = 하위 요소에 각각 이벤트를 추가하는 것이 아닌 상위 요소에 이벤트를 추가하여 하위 요소의 이벤트를 관리하는 방법
+      - 이벤트 위임 방법
+        - 상위 요소에 이벤트를 추가
+        - 이벤트 객체의 target 속성을 사용하여 이벤트가 발생한 요소를 찾음
 
-함수 선언 방법
-  - 함수 선언식 = function 함수명(매개변수) {함수 내용}
-  - 함수 표현식 = var 함수명 = function(매개변수) {함수 내용}
-  - 화살표 함수 = var 함수명 = (매개변수) => {함수 내용}
+      - 이벤트 위임 예시
+        - const list = document.getElementById("list");
+          list.addEventListener("click", function(e) {
+            if (e.target.tagName === "LI") {
+              e.target.classList.toggle("checked");
+            }
+          });
 
-
-
-  함수 선언식 (Function Declarations)
-  일반적인 프로그래밍 코드에서 사용하는 함수 선언방식.
-  
-  function foo() {
-  return "이것은 함수입니다.";
-  }
-  
-  함수 표현식 (Function Expressions)
-  자바스크립트 함수는 표현식을 사용하여 정의 될 수 있으며, 함수 표현식은 변수로 저장될수 있다.
-  
-  e.g. ) `var x = function (a, b) {return a * b};`
-  
-  함수 표현식이 변수에 저장되면, 변수는 함수처럼 사용 가능해진다.
-  변수에 저장된 함수는 함수명이 필요 없으며, 변수 이름을 통하여 호출된다.
-  
-  함수 선언식은 코드가 실행되기 전에 로드되지만, 함수 표현식은 인터프리터가 해당 코드 줄에 도달 할 때만 로드된다. -->
+        - 위 코드는 리스트 요소를 클릭했을 때 checked 클래스를 토글하는 코드
+        - 이벤트 위임을 사용하면 리스트 요소가 추가되어도 이벤트를 추가할 필요가 없음
+[JavaScript 개념 끝] -->
