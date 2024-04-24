@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>Document</title>
+    <style>
+        .backGround {
+            background-color: rgb(170, 231, 247);
+            position: absolute;
+            /* z인덱스 = 위로 올라가는 우선순위 */
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            height: 700px;
+            width: 600px;
+            /* 흰 박스 중앙정렬 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #header {
+            /* 회원가입 중앙정렬 */
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        #hr {
+            width: 80%;
+            border: 0;
+            height: 1px;
+            background-color: gray;
+        }
+
+        input {
+            background-color: transparent;
+            border-radius: 5px;
+            border-color: white;
+            border-style: solid;
+        }
+
+        form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #register {
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .textbox {
+            margin-bottom: 20px;
+        }
+
+        button[type="submit"] {
+            position: absolute;
+            background-color: #818181;
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            padding: 10px 10px;
+            width: 200px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input[type=text] {
+            width: 200px;
+            height: 20px;
+        }
+
+        input[type=email] {
+            width: 200px;
+            height: 20px;
+        }
+
+        input[type=password] {
+            width: 200px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backGround">
+        <div class="content">
+            <div id="header">
+                <h1>회원가입</h1>
+                <hr id="hr" />
+            </div>
+
+            <form>
+                <label for="user_name"> 이름 <span class="identify"></span> </label>
+                <div class="textbox"><input type="text" name="user_name" id="user_name" /></div>
+
+                <label for="user_email">이메일<span class="identify"></span><label>
+                        <div class="textbox"><input type="email" name="user_email" id="user_email" /></div>
+
+                        <label for="user_age"> 나이 <span class="identify"></span> </label>
+                        <div class="textbox"><input type="text" name="user_age" id="user_age" /></div>
+
+                        <label for="user_pw">비밀번호<span class="identify"></span></label>
+                        <div class="textbox"><input type="password" name="user_pw" id="user_pw" /></div>
+
+                        <label for="user_pw_re">비밀번호 확인<span class="identify"></span></label>
+                        <div class="textbox"><input type="password" name="user_pw_re" id="user_pw_re" /></div>
+
+                        <div>
+                            <button type="submit" id="register">
+                                가입하기
+                            </button>
+                        </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
