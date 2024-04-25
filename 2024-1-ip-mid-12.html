@@ -18,16 +18,6 @@
     #keyboard-container {
       display: inline-block;
     }
-    
-    #plus {
-      grid-row: 2 / 4;
-      grid-column: 4 / 5;
-    }
-
-    #zero {
-      grid-row: 3 / 4;
-      grid-column: 1 / 2;
-    }
 
     #keyboard {
       display: grid;
@@ -39,6 +29,14 @@
       padding: 10px;
       border-radius: 5px;
       background-color: #fff;
+    }
+
+    .spanTwo {
+      grid-row: span 2;
+    }
+
+    .columntwo {
+      grid-column: span 2;
     }
 
     button {
@@ -78,9 +76,9 @@
       <button onclick="sendKey('7')">7</button>
       <button onclick="sendKey('8')">8</button>
       <button onclick="sendKey('9')">9</button>
-      <button id="plus" onclick="sendKey('+')">+</button>
+      <button class="columntwo" onclick="sendKey('+')">+</button>
 
-      <button id="enter" onclick="sendKey('Enter')">Enter</button>
+      <button class="columntwo" onclick="sendKey('Enter')">Enter</button>
 
       <button onclick="sendKey('1')">1</button>
       <button onclick="sendKey('2')">2</button>
@@ -88,7 +86,7 @@
       <button onclick="sendKey('4')">4</button>
       <button onclick="sendKey('5')">5</button>
       <button onclick="sendKey('6')">6</button>
-      <button id="zero" onclick="sendKey('0')">0</button>
+      <button class="spanTwo" onclick="sendKey('0')">0</button>
       <burron onclick="sendkey('.')">.</button>
     </div>
   </div>

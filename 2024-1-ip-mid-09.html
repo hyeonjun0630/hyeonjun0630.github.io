@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <head>
+        <title>Document</title>
+    </head>
+
+<body>
+    <div class="backGround">
+        <div class="content">
+            <div id="header">
+                <h1>인하대학교 컴퓨터공학과 홈페이지 회원가입</h1>
+            </div>
+            <div id="content">
+                <h2>필수 정보</h2>
+                <form method="get" action="#">
+                    <h3><label for="user_email">이메일<span class="identify"></span><label></h3>
+                    <span><class="textbox"><input type="email" name="email" id="user_email" placeholder="E-mail" /></span>
+                    <input type="button" value="형식체크" name ="button" id="email_check" />
+
+                    <h3><label for="user_pw">비밀번호<span class="identify"></span></label></h3>
+                    <div class="textbox"><input type="password" name="password1" id="user_pw" placeholder="Password"/></div>
+
+                    <h3><label for="user_pw_re">비밀번호 확인<span class="identify"></span></label></h3>
+                    <div class="textbox"><input type="password" name="password2" id="user_pw_re" placeholder="Password (Repeat)"/></div>
+                    
+                    <h3><label for="user_name"> 이름 <span class="identify"></span> </label></h3>
+                    <div class="textbox"><input type="text" name="username" id="user_name" placeholder="Name"/></div>
+
+                    <h3><label for="gender"> 성별 <span class="identify"></span> </label></h3>
+                    <input type="radio" name="gender" id="gender" value="m"/>남자 (Man)</input>
+                    <input type="radio" name="gender" id="gender" value="w"/>여자 (Woman)</input>
+                    
+                    <h3><label for="class"> 분류 <span class="identify"></span> </label></h3>
+                    <select name="class" id="class">
+                        <option value="u">학사과정 (Undergraduate)</option>
+                        <option value="m">석사과정 (Master Student)</option>
+                        <option value="p">박사/통합과정 (Ph.D. Student)</option>
+                        <option value="f">교직원 (Faculty/Staff)</option>
+                        <option value="s">학부모 (Student Parent)</option>
+                        <option value="g">일반인 (General)</option>
+                    </select>
+                    <button type="submit" id="register">
+                        정보제출
+                    </button>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>
