@@ -2,13 +2,13 @@ const fs = require("fs");
 const path = require("path");
 const express = require("express");
 
-// create an express app
 const app = express();
 
-// handle requests for static resources
+const provider = require("./scripts/data-provider.js");
+const stocks = provider.data;
+
 app.use("/static", express.static(path.join(__dirname, "public")));
 
-// set up route handling
 const router = require("./scripts/stock-router.js");
 router.handleAllStocks(app);
 router.handleSingleSymbol(app);
