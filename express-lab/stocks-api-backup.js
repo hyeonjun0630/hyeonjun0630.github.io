@@ -11,6 +11,8 @@ const jsonData = fs.readFileSync(jsonPath, "utf8");
 const stocks = JSON.parse(jsonData);
 // create an express app
 const app = express();
+
+// handle requests for static resources
 app.use("/static", express.static(path.join(__dirname, "public")));
 
 // define the API routes
